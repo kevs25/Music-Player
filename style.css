@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 * {
+    
     box-sizing: border-box;
 }
 
@@ -8,12 +9,47 @@ body {
     height: 100vh;
     margin: 1;
     font-family: 'lato', sans-serif;
-    background-image: linear-gradient(0deg, rgb(80, 95, 221)23.5%,rgb(226, 189, 180)90%);
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(99,8,8,1) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+   
 }
+
+h1{
+    display: grid;
+    place-items: center;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0004); */
+    animation: animate 5s linear infinite;
+    /* background: -webkit-linear-gradient(#eee, #940822);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    */
+}
+
+@keyframes animate{
+    
+    0%{
+        color: rgb(185, 64, 70);
+        text-shadow: none;
+    }
+    100%{
+        color: #FFF;
+        text-shadow: 0 0 10px #f46303,
+        0 0 20px #fd0303,
+        0 0 40px #e11903,
+        0 0 60px #d60303,
+        0 0 80px #ae0202,
+        0 0 160px #7b0101;
+ 
+    }
+}
+
 .navigation {
     display: flex;
     align-items: center;
@@ -22,9 +58,10 @@ body {
 }
 
 .action-btn{
-    background-color: rgb(199, 225, 243);
+    background: rgb(255, 215, 218);
+
     border: 0;
-    color: rgb(121, 197, 252);
+    color: rgb(46, 4, 8);
     font-size: 20px;
     cursor: pointer;
     padding: 10px;
@@ -32,12 +69,13 @@ body {
 
 }
 .action-btn-big {
-    color: rgb(51, 164, 245);
+    color: rgb(17, 1, 7);
     font-size: 30px;
 }
 
 .music-container {
-    background-color: rgb(199, 225, 243);
+    background: rgb(255, 215, 218);
+
     border-radius: 15px;
     box-shadow: 0 20px 20px 0 rgba(249, 255, 251, 0.9);
     display: flex;
@@ -47,7 +85,7 @@ body {
     z-index: 10; 
 }
 .music-info {
-    background-color: rgba(199, 225, 243, 0.5);
+    background-color: rgba(2, 2, 54, 0.5);
     border-radius: 15px 15px 0 0;
     position: absolute;
     top: 0;
@@ -60,7 +98,29 @@ body {
     transition: transform 0.3s ease-in, opacity 0.3s ease-in;
 }
 .music-info h4 {
+    display: grid;
+    place-items: center;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    animation: inner-text 5s linear infinite;
     margin: 0;
+}
+@keyframes inner-text{
+    
+    0%,18%,20%,50.1%,60%,65.1%,80%,90.1%{
+        color: rgb(255, 175, 179);
+        text-shadow: none;
+    }
+    10%,18.1%,20%,30%,50%,60.1%,65%,100%{
+        color: #FFF;
+        text-shadow: 0 0 10px #6ff403,
+        0 0 20px #a2f203,
+        0 0 40px #a2e103,
+        0 0 60px #2ad603,
+        0 0 80px #55ae02,
+        0 0 160px #2a7b01;
+ 
+    }
 }
 .music-container.play .music-info {
     opacity: 1;
@@ -120,4 +180,88 @@ body {
     width: 0%;
     transition: width 0.1s linear;
 
+}
+
+
+@media (width < 500px) {
+    body{
+        display: block;
+    }
+    h1{
+        font-size: 40px;
+    }
+    .music-container{
+        top: 30rem;
+        left: 4rem;
+        height: 110px;
+        /* margin: 50px 0; */
+        box-shadow: 0 5px 20px 0 rgba(249, 255, 251, 0.9);
+
+        display: block;
+        position: absolute;
+        width: 70%;
+        padding: 10px;
+        margin-bottom: 1rem;
+    }
+    .music-info{
+        left: 2rem;
+        padding: 1rem;
+        width: 85%;
+    }
+    .img-container{
+        top: -25rem;
+        left: 3rem;
+        /* border: 3px solid #2a7b01; */
+        padding: 5rem;
+        width: 250px;
+        height: 250px;
+    }
+    .img-container img{
+        height: 220px;
+        width: 220px;
+        border-radius: 50%;
+    }
+    .img-container::after{
+        
+        display: none;
+    }
+    .navigation{
+
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 2rem;
+        left: 2rem;
+        /* gap: 2.5rem; */
+    
+    }
+}
+
+@media (width < 400px) {
+    h1{
+        font-size: 35px;
+    }
+    .music-container{
+        width: 80%;
+        left: 2.5rem;
+        height: 80px;
+    }
+    .music-info{
+        left: 1.5rem;
+    }
+    .music-info h4{
+        font-size: 12px;
+    }
+    .img-container{
+        left: 2.5rem;
+    }
+    .img-container img{
+        width: 170px;
+        height: 170px;
+    }
+    .navigation{
+        top: 1rem;
+    }
+    
 }
