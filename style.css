@@ -204,7 +204,7 @@ h1{
         margin-bottom: 1rem;
     }
     .music-info{
-        left: 2rem;
+        left: 1.7rem;
         padding: 1rem;
         width: 85%;
     }
@@ -241,6 +241,7 @@ h1{
     .img-container{
         left: 1.7rem;
     }
+    
 }
 
 @media (width < 400px) {
