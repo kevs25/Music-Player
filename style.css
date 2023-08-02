@@ -241,6 +241,12 @@ h1{
     .img-container{
         left: 1.7rem;
     }
+    .music-info{
+        left: 1.5rem;
+    }
+    .music-info h4{
+        font-size: 14px;
+    }
     
 }
 
