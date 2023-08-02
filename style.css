@@ -237,6 +237,11 @@ h1{
     
     }
 }
+@media (width < 450px) {
+    .img-container{
+        left: 1.7rem;
+    }
+}
 
 @media (width < 400px) {
     h1{
