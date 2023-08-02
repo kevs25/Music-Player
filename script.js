@@ -9,7 +9,9 @@ const progressContainer = document.querySelector('.progress-container');
 const trackCurrentTime = document.querySelector('#current-time');
 const trackDurationTime = document.querySelector('#duration-time');
 const authorName = document.querySelector('#author');
-
+const showVolume = document.querySelector("#show-volume");
+const volumeIcon = document.querySelector("#volume-icon");
+const currentVolume = document.querySelector("#volume");
 //song titles
 // const songs= ['Bless the lord', 'Let Me Love You', 'venom']
 const data = [
@@ -133,6 +135,20 @@ function setProgress(e) {
     audio.currentTime = (clickX / width) * duration
 }
 
+function muteSound() {
+    audio.volume = 0;
+    showVolume.innerHTML = 0+"%";
+    currentVolume.value = 0;
+  }
+  
+  // Change Volume
+  function changeVolume() {
+    showVolume.value = currentVolume.value;
+    console.log(showVolume.value);
+    showVolume.innerHTML = showVolume.value+"%";
+    audio.volume = currentVolume.value / 100;
+  }
+
  //Event listeners
  play.addEventListener('click',() => {
     const isPlaying = musicContainer.classList.contains('play')
@@ -155,6 +171,7 @@ audio.addEventListener('timeupdate', updateProgress)
 audio.addEventListener('timeupdate', changeSongTimer)
 
 progressContainer.addEventListener('click', setProgress)
-
+volumeIcon.addEventListener("click", muteSound);
+currentVolume.addEventListener("change", changeVolume);
 
 audio.addEventListener('ended', nextSong)
